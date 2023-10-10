@@ -6,6 +6,7 @@ const port = 3000;
 const db = require('./config/dbconnect');
 
 const userRouter = require('./routes/userRoutes');
+const categoryRouter = require('./routes/categoryRouters');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('combined'));
@@ -16,6 +17,7 @@ db.connect();
 
 //Routes
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/categories', categoryRouter);
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
